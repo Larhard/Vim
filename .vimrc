@@ -229,25 +229,68 @@ Plug 'jkramer/vim-checkbox'
 
 Plug 'AndrewRadev/bufferize.vim'
 
-"""""""""
-"  Coq  "
-"""""""""
 
-Plug 'let-def/vimbufsync'
-Plug 'Larhard/coquille'
+""""""""""""""
+"  Coquille  "
+""""""""""""""
 
-au FileType coq nnoremap <leader>cl :CoqLaunch<CR>
-au FileType coq nnoremap <leader>cu :CoqUndo<CR>
+" Plug 'let-def/vimbufsync'
+" Plug 'Larhard/coquille'
+" Plug 'jvoorhis/coq.vim'
+
+" au FileType coq nnoremap <leader>cl :CoqLaunch<CR>
+" au FileType coq nnoremap <leader>cu :CoqUndo<CR>
+" au FileType coq nnoremap <leader>cn :CoqNext<CR>
+" au FileType coq nnoremap <leader>ct :CoqToCursor<CR>
+" au FileType coq nnoremap <leader>ck :CoqKill<CR>
+" au FileType coq nnoremap <leader>cp :Coq Print 
+" au FileType coq nnoremap <leader>cc :Coq Check 
+
+" au FileType coq nnoremap <F2> :CoqUndo<CR>
+" au FileType coq nnoremap <F3> :CoqNext<CR>
+" au FileType coq nnoremap <F4> :CoqToCursor<CR>
+
+
+""""""""""""""""
+"  Coq au Vim  "
+""""""""""""""""
+
+" Plug 'https://manu@framagit.org/manu/coq-au-vim.git'
+" Plug 'Larhard/coq-au-vim'
+Plug 'https://framagit.org/Larhard/coq-au-vim.git'
+Plug 'jvoorhis/coq.vim'
+
+au FileType coq nnoremap <leader>cs :CoqStart<CR>
+au FileType coq nnoremap <leader>cq :CoqQuit<CR>
+au FileType coq nnoremap <leader>cu :CoqRewind<CR>
 au FileType coq nnoremap <leader>cn :CoqNext<CR>
 au FileType coq nnoremap <leader>ct :CoqToCursor<CR>
 au FileType coq nnoremap <leader>ck :CoqKill<CR>
-au FileType coq nnoremap <leader>cp :Coq Print 
-au FileType coq nnoremap <leader>cc :Coq Check 
+au FileType coq nnoremap <leader>cp :CoqQuery Print 
+au FileType coq nnoremap <leader>cc :CoqQuery Check 
 
-au FileType coq nnoremap <F2> :CoqUndo<CR>
+au FileType coq nnoremap <F2> :CoqRewind<CR>
 au FileType coq nnoremap <F3> :CoqNext<CR>
 au FileType coq nnoremap <F4> :CoqToCursor<CR>
 
+hi default CoqSent    guibg=#661100 ctermbg=darkred
+hi default CoqAdded   guibg=#664400 ctermbg=brown
+hi default CoqChecked guibg=#113300 ctermbg=darkblue
+
+" :breakadd file ~/.vim/bundle/coq-au-vim/autoload/coqtop.vim
+" set verbose=9
+" set verbosefile=~/.vim/bundle/coq-au-vim/autoload/coqtop.vim
+
+" Time
+" R communication
+" Job
+" Xml
+" M
+" H
+" F
+" let g:coq_debug = "trjxmhf"
+au FileType coq CoqStart
+" au FileType coq CoqNext
 
 call plug#end()
 
@@ -297,5 +340,9 @@ filetype plugin on
 
 nnoremap <silent> <leader>h :syntax sync fromstart<CR>
 nnoremap <silent> <leader>m :messages<CR>
+
+"""""""""""
+"  Debug  "
+"""""""""""
 
 " vim:set et sw=2 ts=2:
