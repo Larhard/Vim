@@ -185,7 +185,6 @@ Plug 'lervag/vimtex'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
 let g:tex_conceal='abdmg'
 
 """""""""""""""
@@ -256,9 +255,9 @@ Plug 'AndrewRadev/bufferize.vim'
 """"""""""""""""
 
 " Plug 'https://manu@framagit.org/manu/coq-au-vim.git'
-" Plug 'Larhard/coq-au-vim'
-Plug 'https://framagit.org/Larhard/coq-au-vim.git'
-Plug 'jvoorhis/coq.vim'
+Plug 'Larhard/coq-au-vim'
+" Plug 'https://framagit.org/Larhard/coq-au-vim.git'
+Plug 'Larhard/coq.vim'
 
 au FileType coq nnoremap <leader>cs :CoqStart<CR>
 au FileType coq nnoremap <leader>cq :CoqQuit<CR>
@@ -291,6 +290,8 @@ hi default CoqChecked guibg=#113300 ctermbg=darkblue
 " let g:coq_debug = "trjxmhf"
 au FileType coq CoqStart
 " au FileType coq CoqNext
+
+let g:coq_conceal = "on"
 
 call plug#end()
 
@@ -336,6 +337,9 @@ set tabstop=4
 set shiftwidth=4
 set modeline
 set shell=bash
+set conceallevel=2
+hi Conceal ctermbg=None ctermfg=green
+
 filetype plugin on
 
 nnoremap <silent> <leader>h :syntax sync fromstart<CR>
